@@ -1,0 +1,24 @@
+name: FlujoTrabajo
+
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Clonar el repositorio
+      uses: actions/checkout@v3
+
+    - name: Configurar Git
+      run: |
+        git config --global user.name "Noriel2002"
+        git config --global user.email "chavezdurann@gmail.com"
+
+    - name: Subir archivos al repositorio
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git add .
+        git commit -m "Subida automática desde GitHub Actions"
+        git push
