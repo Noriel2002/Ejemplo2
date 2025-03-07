@@ -8,5 +8,7 @@ jobs:
 
     steps:
 
-    - name: Mensaje
-      run: echo "Primera iteracion con GIT ACTION"
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: Listar archivos
+      #run: ls -la
